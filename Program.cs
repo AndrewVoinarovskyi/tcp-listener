@@ -26,8 +26,6 @@ namespace tcp_listener
                 // Start listening for client requests.
                 server.Start();
 
-                // Buffer for reading data
-                Byte[] bytes = new Byte[256];
                 String data = null;
 
                 // Enter the listening loop.
@@ -37,35 +35,43 @@ namespace tcp_listener
 
                     // Perform a blocking call to accept requests.
                     // You could also use server.AcceptSocket() here.
-                    TcpClient client = server.AcceptTcpClient();
+                    TcpClient client1 = server.AcceptTcpClient();
                     Console.WriteLine("Connected!");
 
+                    Console.Write("Waiting for a connection... ");
+
+                    TcpClient client2 = server.AcceptTcpClient();
+                    Console.WriteLine("Connected!");
+
+                    TicTac tictac = new TicTac();
+                    tictac.Play();
+                    
                     data = null;
 
-                    // Get a stream object for reading and writing
-                    NetworkStream stream = client.GetStream();
-                    StreamReader reader = new StreamReader(stream);
-                    StreamWriter writer = new StreamWriter(stream);
+                    ///////////// Get a stream object for reading and writing
+                    // NetworkStream stream = client.GetStream();
+                    // StreamReader reader = new StreamReader(stream);
+                    // StreamWriter writer = new StreamWriter(stream);
                     // writer.AutoFlush = true;
 
                     // Loop to receive all the data sent by the client.
-                    while ((data = reader.ReadLine()) != null)
-                    {
+                    // while ((data = reader.ReadLine()) != null)
+                    // {
 
-                        Console.WriteLine("Received: {0}", data);
-                        // Process the data sent by the client.
-                        String response = data.ToUpper();
+                    //     Console.WriteLine("Received: {0}", data);
+                    //     // Process the data sent by the client.
+                    //     String response = data.ToUpper();
 
-                        byte[] msg = System.Text.Encoding.ASCII.GetBytes(data);
+                    //     byte[] msg = System.Text.Encoding.ASCII.GetBytes(data);
 
-                        // Send back a response.
-                        writer.WriteLine(response);
-                        writer.Flush();
-                        Console.WriteLine("Sent: {0}", response);
-                    }
+                    //     // Send back a response.
+                    //     writer.WriteLine(response);
+                    //     writer.Flush();
+                    //     Console.WriteLine("Sent: {0}", response);
+                    // }
 
                     // Shutdown and end connection
-                    client.Close();
+                    client1.Close();
                 }
             }
             catch(SocketException e)
