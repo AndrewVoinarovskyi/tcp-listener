@@ -1,0 +1,16 @@
+/home/intern/projects/tcp-listener/bin/Debug/net5.0/tcp-listener
+/home/intern/projects/tcp-listener/bin/Debug/net5.0/tcp-listener.deps.json
+/home/intern/projects/tcp-listener/bin/Debug/net5.0/tcp-listener.runtimeconfig.json
+/home/intern/projects/tcp-listener/bin/Debug/net5.0/tcp-listener.runtimeconfig.dev.json
+/home/intern/projects/tcp-listener/bin/Debug/net5.0/tcp-listener.dll
+/home/intern/projects/tcp-listener/bin/Debug/net5.0/ref/tcp-listener.dll
+/home/intern/projects/tcp-listener/bin/Debug/net5.0/tcp-listener.pdb
+/home/intern/projects/tcp-listener/obj/Debug/net5.0/tcp-listener.csprojAssemblyReference.cache
+/home/intern/projects/tcp-listener/obj/Debug/net5.0/tcp-listener.GeneratedMSBuildEditorConfig.editorconfig
+/home/intern/projects/tcp-listener/obj/Debug/net5.0/tcp-listener.AssemblyInfoInputs.cache
+/home/intern/projects/tcp-listener/obj/Debug/net5.0/tcp-listener.AssemblyInfo.cs
+/home/intern/projects/tcp-listener/obj/Debug/net5.0/tcp-listener.csproj.CoreCompileInputs.cache
+/home/intern/projects/tcp-listener/obj/Debug/net5.0/tcp-listener.dll
+/home/intern/projects/tcp-listener/obj/Debug/net5.0/ref/tcp-listener.dll
+/home/intern/projects/tcp-listener/obj/Debug/net5.0/tcp-listener.pdb
+/home/intern/projects/tcp-listener/obj/Debug/net5.0/tcp-listener.genruntimeconfig.cache
