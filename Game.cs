@@ -163,7 +163,6 @@ namespace tcp_listener
 
             DrawGameField(writer1);
             DrawGameField(writer2);
-            writer1.WriteLine("Press Enter to start the game.");
             
             while (!isFinished)
             {
@@ -172,11 +171,12 @@ namespace tcp_listener
                 player = (turn % 2) + 1;
                 if (player == 1)
                 {
-                    while(stream1.Length >= 0)
+                    while(stream1.DataAvailable)
                     {
                         // Char[] buffer = new Char[(int)reader1.BaseStream.Length];
                         // Span<char> c = new Span<char>();
-                        reader1.ReadLine();
+                        Span<byte> buffer = new Byte[256];
+                        stream1.Read(buffer);
                         // c.Clear();
                         // buffer = null;
                     }
@@ -184,11 +184,12 @@ namespace tcp_listener
                 }
                 else
                 {
-                    while(stream2.Length >= 0)
+                    while(stream2.DataAvailable)
                     {
                         // Char[] buffer = new Char[(int)reader2.BaseStream.Length];
                         // Span<char> c = new Span<char>();
-                        reader2.ReadLine();
+                        Span<byte> buffer = new Byte[256];
+                        stream2.Read(buffer);
                         // c.Clear();
                         // buffer = null;
                     }
