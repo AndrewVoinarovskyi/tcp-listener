@@ -17,7 +17,7 @@ namespace tcp_listener
                 // Set the TcpListener on port 13000.
                 IPAddress localAddr = IPAddress.Parse(args[0]);
 
-                Int32 port = Int32.Parse(args[1]);
+                Int32 port = Convert.ToInt32(args[1]);
 
 
                 // TcpListener server = new TcpListener(port);
@@ -26,32 +26,38 @@ namespace tcp_listener
                 // Start listening for client requests.
                 server.Start();
 
-                String data = null;
+                // String data = null;
 
                 // Enter the listening loop.
                 while(true)
                 {
                     Console.Write("Waiting for a connection... ");
-
-                    // Perform a blocking call to accept requests.
-                    // You could also use server.AcceptSocket() here.
                     TcpClient client1 = server.AcceptTcpClient();
                     Console.WriteLine("Connected!");
+                    NetworkStream stream1 = client1.GetStream();
+                    // StreamReader reader1 = new StreamReader(stream1);
+                    // StreamWriter writer1 = new StreamWriter(stream1);
 
                     Console.Write("Waiting for a connection... ");
-
                     TcpClient client2 = server.AcceptTcpClient();
                     Console.WriteLine("Connected!");
+                    NetworkStream stream2 = client2.GetStream();
+                    // StreamReader reader2 = new StreamReader(stream2);
+                    // StreamWriter writer2 = new StreamWriter(stream2);
 
                     TicTac tictac = new TicTac();
-                    tictac.Play();
-                    
-                    data = null;
+                    tictac.Play(stream1, stream2);
+
+                    // data = null;
 
                     ///////////// Get a stream object for reading and writing
-                    // NetworkStream stream = client.GetStream();
-                    // StreamReader reader = new StreamReader(stream);
-                    // StreamWriter writer = new StreamWriter(stream);
+                    // NetworkStream stream1 = client1.GetStream();
+                    // StreamReader reader1 = new StreamReader(stream1);
+                    // StreamWriter writer1 = new StreamWriter(stream1);
+                    
+                    // NetworkStream stream2 = client2.GetStream();
+                    // StreamReader reader2 = new StreamReader(stream2);
+                    // StreamWriter writer2 = new StreamWriter(stream2);
                     // writer.AutoFlush = true;
 
                     // Loop to receive all the data sent by the client.
@@ -61,8 +67,6 @@ namespace tcp_listener
                     //     Console.WriteLine("Received: {0}", data);
                     //     // Process the data sent by the client.
                     //     String response = data.ToUpper();
-
-                    //     byte[] msg = System.Text.Encoding.ASCII.GetBytes(data);
 
                     //     // Send back a response.
                     //     writer.WriteLine(response);
